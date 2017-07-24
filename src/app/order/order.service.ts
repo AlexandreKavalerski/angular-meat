@@ -12,7 +12,7 @@ import { MEAT_API } from '../app.api'
 @Injectable()
 export class OrderService{
 
-  headers: Headers = new Headers
+  headers: Headers = new Headers()
   options: RequestOptions
   constructor(private cartService: ShoppingCartService,
     private http: Http){
@@ -28,25 +28,28 @@ export class OrderService{
     return this.cartService.items
   }
 
-  increaseQty(item: CartItem){
+  increaseQty(item: CartItem): void{
     this.cartService.increaseQty(item);
   }
 
-  decreaseQty(item: CartItem){
+  decreaseQty(item: CartItem): void{
     this.cartService.decreaseQty(item);
   }
 
-  remove(item: CartItem){
+  clear(): void{
+    this.cartService.clear()
+  }
+
+  remove(item: CartItem): void{
     this.cartService.removeItem(item);
   }
 
   checkOrder(order: Order): Observable<string>{
-    const headers = new Headers
-    headers.append('Content-Type', 'application/json')
     return this.http.post(`${MEAT_API}/orders`,
       JSON.stringify(order),
       this.options)
       .map(response => response.json())
+      .map(order => order.id)
   }
 
 }

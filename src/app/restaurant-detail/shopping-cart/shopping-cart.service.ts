@@ -18,11 +18,11 @@ export class ShoppingCartService{
     }
   }
 
-  increaseQty(item: CartItem){
+  increaseQty(item: CartItem): void{
     item.quantity += 1
   }
 
-  decreaseQty(item: CartItem){
+  decreaseQty(item: CartItem): void{
     item.quantity -= 1
     if(item.quantity === 0){
       this.removeItem(item)
