@@ -21,7 +21,7 @@ import { ShoppingCartService } from '../restaurant-detail/shopping-cart/shopping
 
 })
 export class SharedModule{
-  static forRoot(){
+  static forRoot(): ModuleWithProviders{
     return{
       ngModule: SharedModule,
       providers: [ShoppingCartService, RestaurantsService, OrderService]
