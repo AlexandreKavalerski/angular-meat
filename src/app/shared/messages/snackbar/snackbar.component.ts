@@ -48,7 +48,6 @@ export class SnackbarComponent implements OnInit {
     //o .switchMap transforma/converte/troca os eventos emitidos
     //o .switchMap também faz o unsubscribe se, quando a nova mensagem chegar, o subscribe antigo ainda estiver ativo
     //ao usar o .switchMap, estou encadeando 2 observables, por isso não preciso de 2 subscribes independentes, basta 1 e o único subscribe corresponde a toda a configuração
-    //
   }
 
 }
