@@ -1,4 +1,4 @@
-<div class="menu-item-info-box" *ngIf="menuItem">
+<div class="menu-item-info-box" *ngIf="menuItem" [@menuItemAppeared]="menuItemState">
   <span class="menu-item-info-box-icon"><img [src]="menuItem.imagePath"></span>
 
   <div class="menu-item-info-box-content">
